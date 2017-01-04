@@ -1,0 +1,28 @@
+//
+//  PrefixHeader.pch
+//  停车场
+//
+//  Created by xiaoyan on 2016/11/14.
+//  Copyright © 2016年 xiaoyan. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "ColorHelper.h"
+#import "SDAutoLayout.h"
+
+#define GeoDeKey @"5b8e267c9922003d3e6cbf5ad7ac745e"
+#define TarbarViewHeight 50
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+#define LngNumber @"LngNume"
+#define LatNumber @"LatNumber"
+
+//http://182.93.20.26:11108/
+//http://172.24.95.1/
+#define SearchUrl @"http://182.93.20.26:11108/car_ios/index.php/"
+
+
+#endif /* PrefixHeader_pch */
