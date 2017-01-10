@@ -29,6 +29,7 @@
 -(void)initview{
     self.btn = [UIButton buttonWithType:UIButtonTypeCustom];
     _btn.backgroundColor = [UIColor orangeColor];
+    _btn.userInteractionEnabled = NO;
     [self addSubview:_btn];
     
     _btn.sd_layout

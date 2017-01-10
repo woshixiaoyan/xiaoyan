@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="69" id="KGk-i7-Jjw" customClass="APMyBillTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="382" height="69"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="382" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyi-53-unx">
+                        <rect key="frame" x="18" y="-4" width="43" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="43" id="Vwn-0f-XWB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-28.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IB-FN-tOt">
+                        <rect key="frame" x="138" y="3.5" width="47" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Bc-kf-6KP">
+                        <rect key="frame" x="18" y="30" width="38.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QQ" translatesAutoresizingMaskIntoConstraints="NO" id="TxO-kZ-Htp">
+                        <rect key="frame" x="70" y="4" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="EbG-yI-zKS"/>
+                            <constraint firstAttribute="width" constant="60" id="Xat-CC-V8u"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收到了放假拉三等奖放辣椒塑料袋积分辣椒水的" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVA-8W-Avv">
+                        <rect key="frame" x="138" y="22.5" width="234" height="36"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3IB-FN-tOt" firstAttribute="centerY" secondItem="Fyi-53-unx" secondAttribute="centerY" id="30F-5I-NhS"/>
+                    <constraint firstAttribute="trailing" secondItem="iVA-8W-Avv" secondAttribute="trailing" constant="10" id="CnB-YO-3Hb"/>
+                    <constraint firstItem="iVA-8W-Avv" firstAttribute="top" secondItem="3IB-FN-tOt" secondAttribute="bottom" constant="1" id="JT2-Qd-d41"/>
+                    <constraint firstItem="iVA-8W-Avv" firstAttribute="leading" secondItem="3IB-FN-tOt" secondAttribute="leading" id="K3S-C2-KGR"/>
+                    <constraint firstItem="TxO-kZ-Htp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="T49-DH-thG"/>
+                    <constraint firstItem="0Bc-kf-6KP" firstAttribute="top" secondItem="Fyi-53-unx" secondAttribute="bottom" constant="1" id="Yfc-qS-PIu"/>
+                    <constraint firstAttribute="bottom" secondItem="iVA-8W-Avv" secondAttribute="bottom" constant="10" id="eLf-et-c7Q"/>
+                    <constraint firstItem="0Bc-kf-6KP" firstAttribute="leading" secondItem="Fyi-53-unx" secondAttribute="leading" id="eYa-s6-czG"/>
+                    <constraint firstItem="3IB-FN-tOt" firstAttribute="leading" secondItem="TxO-kZ-Htp" secondAttribute="trailing" constant="8" id="gi7-lZ-M27"/>
+                    <constraint firstItem="Fyi-53-unx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="oJL-pP-z9z"/>
+                    <constraint firstItem="TxO-kZ-Htp" firstAttribute="top" secondItem="Fyi-53-unx" secondAttribute="bottom" constant="-25" id="vMj-5u-lNX"/>
+                    <constraint firstItem="TxO-kZ-Htp" firstAttribute="leading" secondItem="Fyi-53-unx" secondAttribute="trailing" constant="9" id="w5x-dO-atu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-87" y="29.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="QQ" width="86" height="86"/>
+    </resources>
+</document>

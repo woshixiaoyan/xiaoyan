@@ -52,7 +52,7 @@
     xian.sd_layout
     .leftEqualToView(self.contentView)
     .rightEqualToView(self.contentView)
-    .bottomSpaceToView(self.contentView,1)
+    .bottomSpaceToView(self.contentView,0)
     .heightIs(1);
     
 }

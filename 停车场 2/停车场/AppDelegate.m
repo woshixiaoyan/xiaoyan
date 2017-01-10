@@ -21,8 +21,8 @@
     
     [self initTabbar];
     [self setNavAndTab];
-    [self initnavgtion];
-    [self.window makeKeyAndVisible];
+  //  [self initnavgtion];
+   // [self.window makeKeyAndVisible];
     
     return YES;
 }
@@ -32,6 +32,9 @@
     UINavigationController *index_nv = [[UINavigationController alloc] initWithRootViewController:index_vc];
     self.window.rootViewController = index_nv;
 }
+
+
+
 
 
 - (void)setNavAndTab

@@ -15,7 +15,13 @@
 #import "ShopCHViewController.h"
 #import "PaiViewController.h"
 #import "ShopTypeViewController.h"
-@interface IndexViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "PushViewController.h"
+#import "KZVideoViewController.h"
+#import "AFHTTPRequestOperationManager.h"
+@interface IndexViewController ()<UITableViewDelegate,UITableViewDataSource,KZVideoViewControllerDelegate>
+{
+     KZVideoModel *_videoModel;
+}
 @property(strong,nonatomic)UITableView *table;
 @end
 
@@ -26,8 +32,33 @@
     // Do any additional setup after loading the view.
     [self initnavgationview];
     [self initTableView];
-
+    [self initpushview];
 }
+
+-(void)initpushview{
+    UIButton *push_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [push_btn addTarget:self action:@selector(PushClick) forControlEvents:UIControlEventTouchUpInside];
+    push_btn.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:push_btn];
+    
+    push_btn.sd_layout
+    .rightSpaceToView(self.view,11)
+    .bottomSpaceToView(self.view,146/2)
+    .widthIs(68/2)
+    .heightIs(68/2);
+}
+
+-(void)PushClick{
+    PushViewController *push_vc = [[PushViewController alloc] init];
+    push_vc.title = @"发布";
+    [self.navigationController pushViewController:push_vc animated:YES];
+//    KZVideoViewController *videoVC = [[KZVideoViewController alloc] init];
+//    videoVC.delegate = self;
+//    [videoVC startAnimationWithType:KZVideoViewShowTypeSingle];
+    
+}
+
+
 -(void)initTableView{
     self.table = [[UITableView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     _table.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -98,6 +129,10 @@
         PaiViewController *pai_vc = [[PaiViewController alloc] init];
         [self.navigationController pushViewController:pai_vc animated:YES];
     }
+    if (index == 4) {
+        UIViewController *vc = [UIViewController viewControllerWithStoryBoardName:@"vip" vcIdentifier:@"APVipHomeViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 
@@ -162,7 +197,7 @@
         }
         __weak IndexViewController *controller = self;
         cell.btntagIndex = ^(NSInteger index){
-            [controller changeIndex:index];
+            [controller changeIndex:(int)index];
         };
         return cell;
     }
@@ -207,6 +242,45 @@
     headerview.backgroundColor = [UIColor clearColor];
     return headerview;
 }
+
+
+#pragma mark - KZVideoViewControllerDelegate
+- (void)videoViewController:(KZVideoViewController *)videoController didRecordVideo:(KZVideoModel *)videoModel {
+    _videoModel = videoModel;
+    
+    NSError *error = nil;
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSDictionary *attri = [fm attributesOfItemAtPath:_videoModel.videoAbsolutePath error:&error];
+    NSLog(@"%@",[NSString stringWithFormat:@"视频总大小:%.0fKB",attri.fileSize/1024.0]);
+    if (error) {
+        NSLog(@"error:%@",error);
+    }
+    else {
+        
+    }
+    NSURL *imageUrl = [NSURL fileURLWithPath:_videoModel.thumAbsolutePath];
+    NSURL *videoUrl = [NSURL fileURLWithPath:_videoModel.videoAbsolutePath];
+    [self postdata:imageUrl video:videoUrl];
+ //   [self.showView addSubview:player];
+}
+
+- (void)videoViewControllerDidCancel:(KZVideoViewController *)videoController {
+    NSLog(@"没有录到视频");
+}
+
+-(void)postdata:(NSURL *)image video:(NSURL *)video{
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:@"http://123.206.49.77/api/upload/video" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileURL:image name:@"image" fileName:@"image_3.png" mimeType:@"image/png" error:nil];
+        [formData appendPartWithFileURL:video name:@"video" fileName:@"video_3.mp4" mimeType:@"video/mp4" error:nil];
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"success");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"fail");
+    }];
+};
 
 
 - (void)didReceiveMemoryWarning {

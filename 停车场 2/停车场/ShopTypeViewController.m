@@ -8,6 +8,7 @@
 
 #import "ShopTypeViewController.h"
 #import "ShopTypeTableViewCell.h"
+#import "ShopListViewController.h"
 @interface ShopTypeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView *table;
 
@@ -53,6 +54,12 @@
         }
         return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ShopListViewController *list_vc = [[ShopListViewController alloc] init];
+    [self.navigationController pushViewController:list_vc animated:YES];
+}
+
 
 -(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
